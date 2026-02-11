@@ -1,0 +1,168 @@
+@import "./colors.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-size: 16px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+window#waybar {
+  background: @background;
+}
+
+/* Hover opacity */
+#custom-cachy:hover,
+#cpu:hover,
+#network:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#pulseaudio.microphone:hover,
+#pulseaudio.sink-muted:hover,
+#custom-powermenu:hover {
+  opacity: 0.5;
+}
+
+/* Module base styles */
+#custom-cachy,
+#cpu,
+#clock,
+#mpris,
+#custom-menu,
+#tray,
+#privacy,
+#network,
+#bluetooth,
+#pulseaudio,
+#pulseaudio.microphone,
+#backlight,
+#battery,
+#custom-powermenu {
+  color: @on_background;  /* default text color */
+  padding: 6px 0;
+}
+
+
+
+/* All workspace buttons (inactive) */
+#workspaces button {
+  background-color: alpha(@onSurface, 0.2); /* dimmed strip using matugen */
+  border-radius: 3px;    /* rounded edges */
+  padding: 0;
+  margin: 2px 0;         /* spacing between strips */
+  border: none;
+}
+
+/* Active workspace */
+#workspaces button.active {
+  background-color: @secondary; /* active strip color from matugen */
+}
+
+
+
+/* Privacy icon */
+#privacy {
+  margin: 4px;
+  color: @tertiary; /* highlight icon */
+}
+
+/* Clock module */
+#clock {
+  color: @primary; /* info / clock */
+  font-family: "FiraCode Nerd Font", monospace; /* pick your Nerd Font or cyberpunk style font */
+  font-size: 18px;      /* adjust to fit vertical bar */
+}
+
+/* Music / mpris module */
+#mpris {
+  color: @secondary; /* less prominent info */
+}
+
+/* Network states */
+#network.disabled {
+  color: @error; /* red for disabled */
+}
+#network.wifi {
+  color: @primary; /* active Wi-Fi */
+}
+#network.ethernet {
+  color: @secondary; /* ethernet */
+}
+
+/* Bluetooth states */
+#bluetooth.disabled {
+  color: @error;
+}
+#bluetooth.connected {
+  color: @primary;
+}
+
+/* Pulseaudio states */
+#pulseaudio.sink-muted:not(.microphone) {
+  color: @secondary;
+}
+#pulseaudio.microphone.source-muted {
+  color: @error;
+}
+
+/* Battery states */
+#battery.plugged {
+  color: @primary;
+}
+#battery.charging {
+  color: @secondary;
+}
+#battery.critical {
+  color: @error;
+}
+
+/* Tooltip */
+tooltip {
+  background: @background;
+  border: 1px solid @on_background;
+}
+tooltip * {
+  color: @on_background;
+  margin: 2px;
+  background: @background;
+}
+
+/* Sliders */
+#pulseaudio-slider,
+#backlight-slider {
+  min-height: 80px;
+}
+
+#pulseaudio-slider slider,
+#backlight-slider slider {
+  background: transparent;
+}
+
+#pulseaudio-slider trough,
+#backlight-slider trough {
+  min-width: 8px;
+}
+
+#pulseaudio-slider highlight {
+  background: @primary;
+}
+#backlight-slider highlight {
+  background: @secondary;
+}
+
+#custom-fedora {
+    font-size: 18px;
+    padding: 0 10px;
+    color: @primary;
+    transition: 0.2s ease;
+}
+
+
+#custom-separator {
+  color: alpha(@secondary, 0.6);
+  font-size: 12px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+

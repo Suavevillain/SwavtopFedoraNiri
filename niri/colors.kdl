@@ -1,0 +1,22 @@
+layout {
+    border {
+        active-color   "#00dce3"
+        inactive-color "#869394"
+        urgent-color   "#ffb4ab"
+    }
+
+    shadow {
+        color "#00000070"
+    }
+
+    tab-indicator {
+        active-color   "#00dce3"
+        inactive-color "#869394"
+        urgent-color   "#ffb4ab"
+    }
+
+    insert-hint {
+        color "#00dce380"
+    }
+}
+
