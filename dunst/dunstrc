@@ -1,0 +1,54 @@
+[global]
+monitor = 0
+follow = none
+width = 360
+origin = top-right
+offset = 20x20
+notification_limit = 5
+
+progress_bar = false
+
+padding = 16
+horizontal_padding = 16
+text_icon_padding = 12
+
+frame_width = 2
+frame_color = "#87d6bd"
+
+separator_height = 2
+separator_color = "#89938e"
+
+font = "FOT-Rodin Pro 12"
+markup = full
+format = "<b>%s</b>\n<span fgcolor='#87d6bd'>%b</span>"
+highlight = "#87d6bd"
+
+alignment = left
+vertical_alignment = center
+
+show_indicators = no
+
+icon_position = left
+min_icon_size = 32
+max_icon_size = 68
+
+corner_radius = 12
+
+[urgency_low]
+timeout = 3
+background = "#0f1512"
+foreground = "#dee4e0"
+highlight = "#005140"
+
+[urgency_normal]
+timeout = 6
+background = "#0f1512"
+foreground = "#dee4e0"
+highlight = "#005140"
+
+[urgency_critical]
+timeout = 0
+background = "#0f1512"
+foreground = "#dee4e0"
+highlight = "#ffb4ab"
+
