@@ -12,9 +12,7 @@
   "modules-left": ["custom/fedora","custom/separator", "clock"],
   "modules-center": ["mpris", "niri/workspaces"],
   "modules-right": [
-    "group/extras",
-    "network",
-    "bluetooth",
+    "tray",
     "group/audio",
     "group/brightness",
     "battery"
