@@ -129,7 +129,7 @@ prefer-no-csd
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
-spawn-at-startup "qs" "-c" "noctalia-shell"
+//spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "swww" "restore"
@@ -345,13 +345,16 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    //Super+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
+    Super+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
     Mod+Z hotkey-overlay-title="Firefox" { spawn "waterfox"; }
     Alt+B hotkey-overlay-title="Vivaldi" { spawn "vivaldi"; }
     Mod+N hotkey-overlay-title="File Manager" { spawn "nautilus"; }
     Alt+E hotkey-overlay-title="Emoji" { spawn "flatpak" "run" "com.tomjwatson.Emote"; }
     //Alt+N allow-when-locked=true hotkey-overlay-title=null { spawn-sh "swaync-client -t -sw || exec swaync-client"; }
     Alt+V hotkey-overlay-title="Vesktop" { spawn "vesktop"; }
+    Alt+W hotkey-overlay-title="Waypaper"{spawn "waypaper"; }
+    Alt+L hotkey-overlay-title="Wlogout" { spawn "wlogout"; }
+
 
 
 
@@ -361,9 +364,10 @@ binds {
     // For example, this is a standard bind to toggle the screen reader (orca).
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
     Mod+P allow-when-locked=true hotkey-overlay-title="Clipboard History" { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
-    Super+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    //Super+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
     Alt+Escape hotkey-overlay-title="session menu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
-    Alt+W hotkey-overlay-title="session menu" { spawn-sh "	qs -c noctalia-shell ipc call wallpaper toggle"; }
+    //Alt+W hotkey-overlay-title="session menu" { spawn-sh "	qs -c noctalia-shell ipc call wallpaper toggle"; }
+
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.

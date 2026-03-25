@@ -34,11 +34,6 @@ post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings s
 input_path = './templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
 
-[templates.mako]
-input_path = './templates/mako'
-output_path = '~/.config/mako/mako-colors'
-post_hook = 'makoctl reload'
-
 [templates.starship]
 input_path = './templates/starship-colors.toml'
 output_path = '~/.config/starship.toml'
@@ -51,3 +46,7 @@ post_hook = 'dunstctl reload'
 [templates.yazi]
 input_path = './templates/yazi-theme.toml'
 output_path = '~/.config/yazi/theme.toml'
+
+[templates.hyprlock]
+input_path = '~/.config/matugen/templates/hyprlock.conf'
+output_path = '~/.config/hypr/colors.conf'

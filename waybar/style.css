@@ -8,22 +8,11 @@
 }
 
 window#waybar {
-  background: alpha(@background, 0.9);
+  background: alpha(@background, 0.85); /* slightly more transparent */
 }
 
-/* Hover opacity */
-#custom-cachy:hover,
-#cpu:hover,
-#network:hover,
-#bluetooth:hover,
-#pulseaudio:hover,
-#pulseaudio.microphone:hover,
-#pulseaudio.sink-muted:hover,
-#custom-powermenu:hover {
-  opacity: 0.5;
-}
+/* ---------------- MODULE BASE ---------------- */
 
-/* Module base styles */
 #custom-cachy,
 #cpu,
 #clock,
@@ -38,96 +27,140 @@ window#waybar {
 #backlight,
 #battery,
 #custom-powermenu {
-  color: @on_background;  /* default text color */
-  padding: 6px 0;
+  color: @on_background;
+  padding: 6px 6px; /* gives icons breathing room */
+  transition: 0.15s ease;
 }
 
+/* Hover opacity */
 
+#custom-cachy:hover,
+#cpu:hover,
+#network:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#pulseaudio.microphone:hover,
+#pulseaudio.sink-muted:hover,
+#custom-powermenu:hover {
+  opacity: 0.65;
+}
 
-/* All workspace buttons (inactive) */
+/* ---------------- WORKSPACES ---------------- */
+
+#workspaces {
+  margin: 0 4px;
+}
+
+/* inactive */
+
 #workspaces button {
-  background-color: alpha(@onSurface, 0.2); /* dimmed strip using matugen */
-  border-radius: 3px;    /* rounded edges */
-  padding: 0;
-  margin: 2px 0;         /* spacing between strips */
+  background-color: alpha(@secondary, 0.06);
+  border-radius: 8px;
+  padding: 0 6px;
+  margin: 3px 0;
   border: none;
+  opacity: 0.75;
+  transition: 0.15s ease;
 }
 
-/* Active workspace */
+/* hover */
+
+#workspaces button:hover {
+  background-color: alpha(@secondary, 0.15);
+  opacity: 0.9;
+}
+
+/* active */
+
 #workspaces button.active {
-  background-color: @secondary; /* active strip color from matugen */
+  background-color: alpha(@secondary, 0.35);
+  opacity: 1;
 }
 
+/* ---------------- PRIVACY ---------------- */
 
-
-/* Privacy icon */
 #privacy {
   margin: 4px;
-  color: @tertiary; /* highlight icon */
+  color: @tertiary;
 }
 
-/* Clock module */
+/* ---------------- CLOCK ---------------- */
+
 #clock {
-  color: @primary; /* info / clock */
-  font-family: "FiraCode Nerd Font", monospace; /* pick your Nerd Font or cyberpunk style font */
-  font-size: 18px;      /* adjust to fit vertical bar */
+  color: @primary;
+  font-family: "FiraCode Nerd Font", monospace;
+  font-size: 18px;
 }
 
-/* Music / mpris module */
+/* ---------------- MUSIC ---------------- */
+
 #mpris {
-  color: @secondary; /* less prominent info */
+  color: @secondary;
 }
 
-/* Network states */
+/* ---------------- NETWORK ---------------- */
+
 #network.disabled {
-  color: @error; /* red for disabled */
-}
-#network.wifi {
-  color: @primary; /* active Wi-Fi */
-}
-#network.ethernet {
-  color: @secondary; /* ethernet */
+  color: @error;
 }
 
-/* Bluetooth states */
+#network.wifi {
+  color: @primary;
+}
+
+#network.ethernet {
+  color: @secondary;
+}
+
+/* ---------------- BLUETOOTH ---------------- */
+
 #bluetooth.disabled {
   color: @error;
 }
+
 #bluetooth.connected {
   color: @primary;
 }
 
-/* Pulseaudio states */
+/* ---------------- AUDIO ---------------- */
+
 #pulseaudio.sink-muted:not(.microphone) {
   color: @secondary;
 }
+
 #pulseaudio.microphone.source-muted {
   color: @error;
 }
 
-/* Battery states */
+/* ---------------- BATTERY ---------------- */
+
 #battery.plugged {
   color: @primary;
 }
+
 #battery.charging {
   color: @secondary;
 }
+
 #battery.critical {
   color: @error;
 }
 
-/* Tooltip */
+/* ---------------- TOOLTIP ---------------- */
+
 tooltip {
-  background: @background;
-  border: 1px solid @on_background;
+  background: alpha(@background, 0.95);
+  border: 1px solid alpha(@on_background, 0.2);
 }
+
 tooltip * {
   color: @on_background;
   margin: 2px;
-  background: @background;
+  background: transparent;
 }
 
-/* Sliders */
+/* ---------------- SLIDERS ---------------- */
+
 #pulseaudio-slider,
 #backlight-slider {
   min-height: 80px;
@@ -146,23 +179,28 @@ tooltip * {
 #pulseaudio-slider highlight {
   background: @primary;
 }
+
 #backlight-slider highlight {
   background: @secondary;
 }
 
+/* ---------------- CUSTOM ICONS ---------------- */
+
 #custom-fedora {
-    font-size: 18px;
-    padding: 0 10px;
-    color: @primary;
-    transition: 0.2s ease;
+  font-size: 18px;
+  padding: 0 10px;
+  color: @primary;
+  transition: 0.2s ease;
 }
 
+#custom-fedora:hover {
+  opacity: 0.7;
+}
+
+/* separator */
 
 #custom-separator {
-  color: alpha(@secondary, 0.6);
+  color: alpha(@secondary, 0.5);
   font-size: 12px;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding: 0 4px;
 }
-
-

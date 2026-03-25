@@ -1,0 +1,33 @@
+Running test at Thu Feb 19 07:05:57 AM EST 2026
+Wallpaper: /home/swavfedora/Pictures/wallpapers/animeteal.png
+error: unexpected argument '--source-color' found
+
+  tip: a similar argument exists: '--source-color-index'
+
+Usage: matugen image --type <TYPE> --source-color-index <SOURCE_COLOR_INDEX> <PATH>
+
+For more information, try '--help'.
+Matugen FAILED
+Test finished
+Running test at Thu Feb 19 07:06:02 AM EST 2026
+Wallpaper: /home/swavfedora/Pictures/wallpapers/blacknwhite.jpg
+error: unexpected argument '--source-color' found
+
+  tip: a similar argument exists: '--source-color-index'
+
+Usage: matugen image --type <TYPE> --source-color-index <SOURCE_COLOR_INDEX> <PATH>
+
+For more information, try '--help'.
+Matugen FAILED
+Test finished
+Running test at Thu Feb 19 07:06:04 AM EST 2026
+Wallpaper: /home/swavfedora/Pictures/wallpapers/bluedisks.jpg
+error: unexpected argument '--source-color' found
+
+  tip: a similar argument exists: '--source-color-index'
+
+Usage: matugen image --type <TYPE> --source-color-index <SOURCE_COLOR_INDEX> <PATH>
+
+For more information, try '--help'.
+Matugen FAILED
+Test finished
