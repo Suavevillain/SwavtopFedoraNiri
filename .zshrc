@@ -24,7 +24,7 @@ alias weeb='ani-cli'
 alias search='dnf search'
 alias weather='curl wttr.in/Jacksonville FL'
 alias remove='sudo dnf remove'
-alias restartwaybar='hyprctl dispatch exec waybar'
+alias restartwaybar='systemctl --user restart waybar.service'
 alias yazikeys='bat /home/swav/Documents/yazi.md'
 
 
