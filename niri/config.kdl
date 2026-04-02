@@ -346,8 +346,8 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
-    Mod+Z hotkey-overlay-title="Firefox" { spawn "waterfox"; }
-    Alt+B hotkey-overlay-title="Vivaldi" { spawn "vivaldi"; }
+    Mod+Z hotkey-overlay-title="Firefox" { spawn "flatpak" "run" "net.waterfox.waterfox"; }
+    Alt+B hotkey-overlay-title="Vivaldi" { spawn "flatpak" "run" "com.vivaldi.Vivaldi"; }
     Mod+N hotkey-overlay-title="File Manager" { spawn "nautilus"; }
     Alt+E hotkey-overlay-title="Emoji" { spawn "flatpak" "run" "com.tomjwatson.Emote"; }
     //Alt+N allow-when-locked=true hotkey-overlay-title=null { spawn-sh "swaync-client -t -sw || exec swaync-client"; }

@@ -1,7 +1,7 @@
 layout {
     border {
-        active-color   "#9ccaff"
-        inactive-color "#8a919c"
+        active-color   "#99f161"
+        inactive-color "#8a9480"
         urgent-color   "#ffb4ab"
     }
 
@@ -10,13 +10,13 @@ layout {
     }
 
     tab-indicator {
-        active-color   "#9ccaff"
-        inactive-color "#8a919c"
+        active-color   "#99f161"
+        inactive-color "#8a9480"
         urgent-color   "#ffb4ab"
     }
 
     insert-hint {
-        color "#9ccaff80"
+        color "#99f16180"
     }
 }
 

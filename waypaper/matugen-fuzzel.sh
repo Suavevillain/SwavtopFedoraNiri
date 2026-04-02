@@ -18,7 +18,18 @@ if [ -z "$WALLPAPER" ]; then
     exit 1
 fi
 
-# --- Load saved scheme ---
+# --- Persist GTK theme so nwg-look settings survive ---
+mkdir -p ~/.config/gtk-3.0 ~/.config/gtk-4.0
+cat > ~/.config/gtk-3.0/settings.ini <<EOF
+[Settings]
+gtk-theme-name=Adwaita
+gtk-icon-theme-name=Papirus
+gtk-application-prefer-dark-theme=1
+EOF
+cp ~/.config/gtk-3.0/settings.ini ~/.config/gtk-4.0/settings.ini
+echo "GTK settings persisted" >> "$LOG"
+
+# --- Load saved Matugen scheme ---
 if [ -f "$STATE_FILE" ]; then
     SAVED_WALLPAPER=$(cut -d '|' -f1 "$STATE_FILE")
     SAVED_SCHEME=$(cut -d '|' -f2 "$STATE_FILE")
@@ -38,7 +49,7 @@ else
 fi
 echo "Selected scheme: $SCHEME" >> "$LOG"
 
-# --- Pick source color (optional) ---
+# --- Pick source colors (optional) ---
 if command -v convert >/dev/null 2>&1; then
     COLORS=$(convert "$WALLPAPER" -resize 50x50 -format %c -depth 8 histogram:info:- \
              | sort -nr | head -n5 | awk '{print $3}')
@@ -46,20 +57,23 @@ else
     COLORS="#c55e53\n#9e943c\n#6751a5\n#3b88ff\n#ffd700"
 fi
 
-# Run Matugen in a Kitty terminal so the interactive prompt works
-kitty sh -c "matugen image '$WALLPAPER' -t '$SCHEME' -c '$CONFIG' -v"
+# --- Run Matugen interactively in Kitty ---
+# Export GTK settings so child terminal inherits them
+export GTK_THEME=Adwaita
+export XDG_CURRENT_DESKTOP=sway
 
+kitty sh -c "matugen image '$WALLPAPER' -t '$SCHEME' -c '$CONFIG' -v"
 if [ $? -eq 0 ]; then
     echo "Matugen ran successfully in Kitty" >> "$LOG"
 else
     echo "Matugen FAILED" >> "$LOG"
 fi
 
-# --- Set wallpaper with swww ---
+# --- Set wallpaper last ---
 if command -v swww >/dev/null 2>&1; then
+    sleep 0.2  # tiny delay to avoid race with GTK apps
     swww img "$WALLPAPER" >> "$LOG" 2>&1
     echo "Wallpaper set via swww" >> "$LOG"
 fi
 
 echo "---- Done ----" >> "$LOG"
-
