@@ -1,20 +1,97 @@
 {
-  "reload_style_on_change": true,
-  "toggle": true,
-  "layer": "top",
-  "position": "left",
-  "margin-top": 0,
-  "margin-bottom": 0,
-  "margin-left": 0,
-  "margin-right": 0,
-  "spacing": 0,
-  "include": ["~/.config/waybar/modules.json"],
-  "modules-left": ["custom/fedora","custom/separator", "clock"],
-  "modules-center": ["mpris", "niri/workspaces"],
-  "modules-right": [
-    "tray",
-    "group/audio",
-    "group/brightness",
-    "battery"
-  ]
+    "layer": "top",
+    "position": "top",
+
+    "height": 18,
+    "spacing": 2,
+
+    "margin-top": 4,
+    "margin-right": 260,
+    "margin-bottom": 0,
+    "margin-left": 260,
+
+    "modules-left": [
+        "niri/workspaces",
+        "niri/window"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "custom/weather",
+        "network",
+        "pulseaudio",
+        "battery",
+        "tray"
+    ],
+
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "🌑",
+            "2": "🌒",
+            "3": "🌓",
+            "4": "🌔",
+            "5": "🌕",
+            "6": "🌖",
+            "7": "🌗",
+            "8": "🌘",
+            "active": "🌕",
+            "default": "🌑"
+        },
+        "show-all": true,
+        "tooltip": false
+    },
+
+    "niri/window": {
+        "format": " {title}",
+        "max-length": 35,
+        "tooltip": false
+    },
+
+    "tray": {
+        "spacing": 6,
+        "tooltip": false
+    },
+
+    "battery": {
+        "format": "󰂆 {capacity}%",
+        "interval": 5,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "❌",
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "max-volume": 150,
+        "format": " {volume}%",
+        "format-muted": "🔇",
+        "format-bluetooth": " {volume}%",
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+
+    "clock": {
+        "format": "{:%a, %b %d %I:%M %p}",
+        "tooltip": false
+    },
+   "custom/weather": {
+    "format": "{}°",
+    "tooltip": true,
+    "interval": 3600,
+      "exec": "wttrbar --fahrenheit --location Jacksonville,Florida",
+    "return-type": "json"
+   }
 }
