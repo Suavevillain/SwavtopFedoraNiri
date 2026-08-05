@@ -2,26 +2,25 @@
     "layer": "top",
     "position": "top",
 
-    "height": 18,
-    "spacing": 2,
+    "height": 36,
+    "spacing": 0,
 
-    "margin-top": 4,
-    "margin-right": 260,
+    "margin-top": 2,
+    "margin-right": 16,
     "margin-bottom": 0,
-    "margin-left": 260,
+    "margin-left": 16,
 
-    "modules-left": [
-        "niri/workspaces",
-        "niri/window"
-    ],
+   "modules-left": [
+    "custom/fedora",
+    "niri/workspaces"
+],
 
     "modules-center": [
-        "clock"
-    ],
+    "clock"
+],
 
     "modules-right": [
         "custom/weather",
-        "network",
         "pulseaudio",
         "battery",
         "tray"
@@ -30,34 +29,33 @@
     "niri/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "1": "🌑",
-            "2": "🌒",
-            "3": "🌓",
-            "4": "🌔",
-            "5": "🌕",
-            "6": "🌖",
-            "7": "🌗",
-            "8": "🌘",
-            "active": "🌕",
-            "default": "🌑"
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "active": "󰮯",
+            "default": ""
         },
         "show-all": true,
         "tooltip": false
     },
 
-    "niri/window": {
-        "format": " {title}",
-        "max-length": 35,
-        "tooltip": false
-    },
+"niri/window": {
+  "format": "{app_id}",
+  "icon": true
+},
 
     "tray": {
-        "spacing": 6,
+        "spacing": 8,
         "tooltip": false
     },
 
     "battery": {
-        "format": "󰂆 {capacity}%",
+        "format": "󰂄 {capacity}%",
         "interval": 5,
         "states": {
             "warning": 20,
@@ -67,31 +65,43 @@
     },
 
     "network": {
-        "format-wifi": "",
+        "format-wifi": "󰖩",
         "format-ethernet": "󰈀",
-        "format-disconnected": "❌",
+        "format-disconnected": "󰖪",
         "tooltip": false
     },
 
     "pulseaudio": {
         "scroll-step": 5,
         "max-volume": 150,
-        "format": " {volume}%",
-        "format-muted": "🔇",
-        "format-bluetooth": " {volume}%",
+        "format": "󰕾 {volume}%",
+        "format-muted": "󰖁",
         "on-click": "pavucontrol",
         "tooltip": false
     },
 
-    "clock": {
-        "format": "{:%a, %b %d %I:%M %p}",
-        "tooltip": false
-    },
-   "custom/weather": {
+   "clock": {
+    "format": "{:%a %b %d  %I:%M %p}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+        "mode": "month",
+        "mode-mon-col": 3,
+        "weeks-pos": "right",
+        "on-scroll": 1
+    }
+},
+
+"custom/fedora": {
+    "format": "",
+    "tooltip": "System",
+    "on-click": "~/.config/waybar/scripts/powermenu.sh"
+},
+
+"custom/weather": {
     "format": "{}°",
     "tooltip": true,
     "interval": 3600,
-      "exec": "wttrbar --fahrenheit --location Jacksonville,Florida",
+    "exec": "wttrbar --fahrenheit --location Jacksonville,Florida",
     "return-type": "json"
-   }
+}
 }
